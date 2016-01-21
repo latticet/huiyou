@@ -1,0 +1,8 @@
+<ul class="media-list thread-list-small" data-role="list">
+	{% for homework in homeworks %}
+	 
+	  {% include 'HomeworkBundle:Homework:item.html.twig' %}
+	{% else %}
+	  <li class="empty-item">此课时还没有作业</li>
+	{% endfor %}
+</ul>

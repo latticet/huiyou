@@ -1,0 +1,115 @@
+{% extends 'HomeworkBundle:CourseManage:layout.html.twig' %}
+
+{% block title %}详细信息 - {{ parent() }}{% endblock %}
+
+{% set side_nav = 'homeworkCheck' %}
+
+{% set script_controller = 'homework/homework-correct' %}
+
+
+{% block main %}
+
+<div class="panel panel-default panel-col">
+  <div class="panel-heading">作业信息</div>
+  <div class="panel-body">
+    <form id="course-base-form" class="form-horizontal" method="post" enctype="multipart/form-data" action="/app_dev.php/homework/file/upload">
+      {{ web_macro.flash_messages() }}
+<div class="form-group">
+        <div class="col-md-2 control-label"><label>作业</label></div>
+        <div class="col-md-8 controls">
+         {{ homework.content }}
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-2 control-label"><label>学生{{ homework_member.student.user_info.nickname }}的作业</label></div>
+        <div class="col-md-8 controls">
+          {% if homework_member.student.pic_path %}
+<img id="student_pic" src="{{ homework_member.student.pic_path }}" />
+{% endif %}
+        </div>
+      </div>
+
+      <div class="form-group dynamic-collection" id="course-goals-form-group">
+        <div class="col-md-2 control-label"><label>学生备注</label></div>
+        <div class="col-md-8 controls">          
+          {{ homework_member.student.remark }}
+
+        </div>
+      </div>
+
+      <div class="form-group" id="course-audiences-form-group">
+      
+<div class="form-group">
+        <div class="col-md-2 control-label"><label>老师===批改</label></div>
+        <div class="col-md-8 controls">
+          {% if homework_member.teacher.pic_path %}
+<img src="{{ homework_member.teacher.pic_path }}">
+{% endif %}
+
+        </div>
+      </div>
+      <div class="form-group">
+<div class="col-md-8 col-md-offset-2 controls">      <input type="file" name="file">
+</div>
+      </div>
+        <div class="col-md-2 control-label"><label>老师备注</label></div>
+        <div class="col-md-8 controls">
+
+
+<textarea name="remark" rows="10" id="course-remark-field" class="form-control"  >{{ homework_member.teacher.remark }}</textarea>
+        </div>
+      </div>
+<!-- jQuery -->
+ 
+  
+  <!-- wColorPicker -->
+  <link rel="Stylesheet" type="text/css" href="{{ asset('/assets/libs/wPaint/wColorPicker.css') }}" />
+  
+  
+  <!-- wPaint -->
+  <link rel="Stylesheet" type="text/css" href="{{ asset('/assets/libs/wPaint/wPaint.css') }}" />
+        <div class="form-group">
+        <div class="col-md-2 control-label"><label>绘图区</label></div>
+        <div class="col-md-8 controls">
+             
+
+  <table><tr>
+    <td>
+      <div id="wPaint2" style="position:relative; width:500px; height:300px; background:#CACACA; border:solid black 1px;"></div>
+    </td>
+  </tr><tr>
+    <td colspan="2">
+      <div>       
+        <input id = "clear_canvas" type="button" value="重置" />
+        <input id = "upload_image" type="button" value="上传" />
+      </div><br/>
+    </td>
+  </tr></table>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <div class="col-md-8 col-md-offset-2 controls">
+            <button class="btn btn-fat btn-primary" id="course-create-btn" type="submit">保存</button>
+        </div>
+      </div>
+<input type="hidden" name="homework_member_id" value="{{ homework_member.student.id }}">
+      <input type="hidden" name="homework_id" value="{{ homework.id }}">
+    <input type="hidden" name="course_id" value="{{ course.id }}">
+    <input type="hidden" name="lesson_id" value="{{ lesson.id }}">
+    <input type="hidden" name="member_type" value="teacher">
+   <input type="hidden" name="pic" id="pic" />
+    
+
+    </form>
+  </div>
+</div>
+
+  
+
+  <br/><br/>
+
+{% endblock %}
+
+
+

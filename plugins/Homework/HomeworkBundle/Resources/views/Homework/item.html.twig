@@ -1,0 +1,12 @@
+<li class="media homework-item" data-id="{{ homework.id }}">
+	<div class="media-body homework-item-body">
+		<div class="title">
+		<a  href="{{ path('homework_do', {courseId:course.id, lessonId:lesson.id}) }}" target="_blank" data-id="{{ homework.id }}">{{ homework.content }}</a>
+		</div>
+		<div class="metas">
+			发表于 {{ homework.create_at|smart_time }}
+			<span class="bullet">•</span>
+			<a href="#">{{ homework.id }}回答</a>
+		</div>
+	</div>
+</li>

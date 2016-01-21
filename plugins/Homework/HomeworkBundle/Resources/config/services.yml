@@ -1,0 +1,9 @@
+services:
+    homework.example:
+        class: Homework\HomeworkBundle\Homework
+    homework.homework_member:
+        class: Homework\HomeworkBundle\HomeworkMember
+
+#    homework.example:
+#        class: Homework\HomeworkBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

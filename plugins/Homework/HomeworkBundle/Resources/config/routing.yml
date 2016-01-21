@@ -1,0 +1,75 @@
+homework_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: HomeworkBundle:Default:index }
+course_homework_check_list:
+    path:     /course/homework/check/{courseId}/{status}/list
+    defaults: { _controller: HomeworkBundle:Homework:index }
+
+
+homework_file_upload:
+    path:     /course/{courseId}/homework/upload/course/files/{targetType}
+    defaults: { _controller: HomeworkBundle:HomeworkFileManage:uploadCourseFiles }
+homework_manage_picture:
+    pattern:  /course/{courseId}/homework/manage/picture
+    defaults: { _controller: HomeworkBundle:CourseManage:picture }
+
+
+
+
+homework_manage_picture_crop:
+    pattern:  /course/{courseId}/homework/manage/picture/crop
+    defaults: { _controller: HomeworkBundle:CourseManage:pictureCrop }
+
+homework_add:
+    pattern:  /course/{courseId}/lesson/{lessonId}/homework/add
+    defaults: { _controller: HomeworkBundle:Homework:add }
+
+
+my_teaching_homework_list:
+    pattern:  /my/teaching/homework/list
+    defaults: { _controller: HomeworkBundle:Homework:list }
+my_homework_list:
+    pattern:  /my/homework/list
+    defaults: { _controller: HomeworkBundle:Homework:list }
+# 修改作业
+homework_correct:
+    pattern:  /course/{courseId}/homework/correct
+    defaults: { _controller: HomeworkBundle:Homework:uploadHomeworkFile }
+homework_correct_upload:
+    pattern:  /homework/correct/upload
+    defaults: { _controller: HomeworkBundle:Homework:logoUpload }
+
+# 作业上传
+homework_file_upload:
+    pattern:  /homework/file/upload
+    defaults: { _controller: HomeworkBundle:File:upload }
+
+# 右侧工具条 作业
+lessonplugin_homework_list:
+    pattern:  /lessonplugin/homework/list
+    defaults: { _controller: HomeworkBundle:Homework:listPlugin }
+# 做作业
+homework_do:
+    pattern:  /course/{courseId}/lesson/{lessonId}/homework/do
+    defaults: { _controller: HomeworkBundle:Homework:do }
+
+#按lesson获取homework列表
+lesson_homwork_list:
+    pattern:  /homework/course/{courseId}/lesson/{lessonId}
+    defaults: { _controller: HomeworkBundle:Homework:lessonHomeworkList }
+#删除作业标题 
+homework_delete:
+    pattern:  /homework/delete
+    defaults: { _controller: HomeworkBundle:Homework:delete }
+#老师批改作业
+homework_teacher_correct:
+    pattern:  /homework/teacher/course/{courseId}/lesson/{lessonId}
+    defaults: { _controller: HomeworkBundle:HomeworkTeacher:correct }
+#老师批改作业 之 插件上传
+homework_upload_imageData:
+    pattern:  /homework/upload/imageData
+    defaults: { _controller: HomeworkBundle:HomeworkTeacher:uploadImageData }
+#删除学生提交的作业
+homework_member_delete: 
+    pattern:  /homework/member/delete
+    defaults: { _controller: HomeworkBundle:HomeworkMember:delete }

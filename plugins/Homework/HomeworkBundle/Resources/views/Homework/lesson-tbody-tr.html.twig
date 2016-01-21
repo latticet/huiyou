@@ -1,0 +1,21 @@
+{% import "TopxiaWebBundle::macro.html.twig" as web_macro %}
+{% set quality = "" %}
+  
+
+
+<tr id="upload-file-tr-0000" data-role="item" data-convertHash="000000">
+  <td><input value="{{ homework_member.id }}" type="checkbox" data-role="batch-item" ></td>
+  
+  <td> 
+    <a href="{{ path('homework_teacher_correct', {courseId:course.id, lessonId:homework.lesson_id,homeworMemberId:homework_member.id,userId:homework_member.user_id}) }}">{{ homework_member.user_info.nickname }}</a>
+  </td>
+  <td> 
+    <span class="text-sm">{{ homework.update_at|date('Y-n-d H:i') }}</span>
+    
+  </td>
+  <td> 
+    <span class="text-sm"><a href="{{ path('homework_teacher_correct', {courseId:course.id, lessonId:homework.lesson_id,homeworMemberId:homework_member.id,userId:homework_member.user_id}) }}">批改</a></span>
+    
+  </td>
+  </tr>
+

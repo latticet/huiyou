@@ -1,0 +1,19 @@
+{% import "TopxiaWebBundle::macro.html.twig" as web_macro %}
+{% set quality = "" %}
+  
+
+
+<tr id="upload-file-tr-0000" data-role="item" data-convertHash="000000">
+  <td><input value="{{ homework.id }}" type="checkbox" data-role="batch-item" ></td>
+
+  
+  <td> 
+    <a href="{{ path('lesson_homwork_list', {courseId:course.id, lessonId:homework.lesson_id}) }}">{{ homework.lesson_name }}</a>
+  </td>
+  <td>{{ homework.title }}</td>
+  <td> 
+    <span class="text-sm">{{ homework.update_at|date('Y-n-d H:i') }}</span>
+    
+  </td>
+  </tr>
+
